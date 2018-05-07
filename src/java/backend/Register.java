@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class Register {
     public Register(){}
-    public void RegistrationCheck(String name, String username, int money, String password, String Customer) throws IOException{
+    public String RegistrationCheck(String name, String username, int money, String password, String customer) throws IOException{
     
     try
     {
@@ -16,6 +16,7 @@ public class Register {
     String f = "H:\\Projects\\Database\\0Usernames.txt";
     
     BufferedWriter bWrite;
+    BufferedWriter bWrite2;
     FileWriter fWrite;
     PrintWriter out;
     
@@ -23,7 +24,7 @@ public class Register {
     FileReader fRead = new FileReader(usernameFile);
     BufferedReader bRead = new BufferedReader(fRead);
     String line;
-    String registeredUsername;
+    
     while((line = bRead.readLine()) != null)
     {
       
@@ -37,17 +38,41 @@ public class Register {
     }
     if(!sameUsername)
     {
-        fWrite = new FileWriter("H:\\Projects\\Database\\" + accountNumber + ".txt");
+        // Entering USERNAME IN 0Usernames.txt
+        File fname = new File("H:\\Projects\\Database\\0Usernames.txt");
+        fWrite = new FileWriter(fname, true); //We have the permission to append the file
         bWrite = new BufferedWriter(fWrite);
         out = new PrintWriter(bWrite);
-        out.println("hello");
-        bWrite.append("hello");
+        out.println(username + ";" + password + ";" +accountNumber);
+        
+        // Making a new txt file for new successfully registered user
+        File userFile = new File("H:\\Projects\\Database\\" + accountNumber + ".txt");
+        fWrite = new FileWriter(userFile, true); //We have the permission to append the file
+        bWrite2 = new BufferedWriter(fWrite);
+        out = new PrintWriter(bWrite2);
+        out.println("Name :" + name + ";");
+        out.println("USERNAME :" + username + ";" );
+        out.println("Account Balanc:" + money + ";");
+        out.println("CUSTOMER :" + customer + ";" );
+        out.println("PASSBOOK:");
+        
+        
+        
+        bWrite.close();
+        bWrite2.close();
+        
     }
-    
+  
+    else
+    {
+        String s = "OOPS!!! Username already taken. Choose some other username.";   
+    }
     }
     catch(IOException ex)
     {
         System.out.println(ex);
     }
+    String s = "Your are now registered user of Gringotts!!! CONGRATULATIONS!";
+        return null;
     }
 }
