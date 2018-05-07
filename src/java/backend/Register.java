@@ -65,7 +65,8 @@ public class Register {
   
     else
     {
-        String s = "OOPS!!! Username already taken. Choose some other username.";   
+        String s = "OOPS!!! Username already taken. Choose some other username."; 
+        return s;
     }
     }
     catch(IOException ex)
@@ -73,6 +74,6 @@ public class Register {
         System.out.println(ex);
     }
     String s = "Your are now registered user of Gringotts!!! CONGRATULATIONS!";
-        return null;
+        return s;
     }
 }

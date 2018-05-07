@@ -1,14 +1,5 @@
-<%-- 
-    Document   : index
-    Created on : 29 Mar, 2018, 3:53:57 AM
-    Author     : Saurabh-HP
---%>
- <%!
-  String getProjectHeading()
-  {
-     return "Online Examination System";
-  }
-  %>
+
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
