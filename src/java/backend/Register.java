@@ -51,9 +51,9 @@ public class Register {
         bWrite2 = new BufferedWriter(fWrite);
         out = new PrintWriter(bWrite2);
         out.println("Name :" + name + ";");
-        out.println("USERNAME :" + username + ";" );
-        out.println("Account Balanc:" + money + ";");
-        out.println("CUSTOMER :" + customer + ";" );
+        out.println("USERNAME :" + username + ":" );
+        out.println("Account Balanc:" + money + ":");
+        out.println("CUSTOMER :" + customer + ":" );
         out.println("PASSBOOK:");
         
         

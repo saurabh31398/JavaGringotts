@@ -4,9 +4,9 @@ package backend;
 import java.io.*;
 
 public class Database {
-    public String userHomeDisplay(String username) throws IOException
+    public String[] userHomeDisplay(String username) throws IOException
     {
-        String s = "";
+        String s[] = new String[10];
      try{
          
         String f = "H:\\Projects\\Database\\0Usernames.txt";
@@ -27,15 +27,6 @@ public class Database {
             accountNumber++;
             
         }
-        File f1 = new File("H:\\Projects\\Database\\"+ "hello1" + ".txt");
-        FileWriter fwrite = new FileWriter(f1, true);
-        BufferedWriter bwrite = new BufferedWriter(fwrite);
-        PrintWriter out = new PrintWriter(bwrite);
-        out.println("H:\\Projects\\Database\\"+ accountNumber+ ".txt");
-        
- 
-        bwrite.close();
-        out.close();
 
         f = "H:\\Projects\\Database\\"+ accountNumber + ".txt";
         File file1 = new File(f);
@@ -44,19 +35,34 @@ public class Database {
         int i = 0;
  
        while((line = bRead1.readLine())!= null )
-        {   if(i < 1)
+        {   
+        if(i == 0)                                   // For NAME
             {
                 String[] words = line.split("[:]");
-                s = words[1];
-                i++;
+                s[0] = words[1];
             }
-
+        else if(i == 1)                                      // For USERNAME but since we already have it so we just make a set method in UserHome.java
+            {
+                String[] words1 = line.split("[:]");
+                s[1] = words1[1];
+            }
+        else if(i == 2)                                      // For ACCOUNT BALANCE
+            {
+                String[] words = line.split("[:]");
+                s[2] = words[1];
+            }
+        else if(i == 3)                                      // For WIZARD/ WITCH/ HOGWARTS STUDENT
+            {
+                String[] words = line.split("[:]");
+                s[i] = words[1];
+            }
+        else if(i > 4)                                       //For Passbook
+            {
+                s[i] = line;
+            }
+        i++;
         }
-        bRead.close();
-      
-      
-        
-        }
+        } 
         catch(IOException ex)
         {}
         return s;
