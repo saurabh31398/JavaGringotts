@@ -21,14 +21,14 @@
                 <h3> SIGN IN </h3>
                     <h3><input type="text" name="nam" size="35" placeholder="NAME.."></h3>
                     <h3><input type="text" name="username" size="35" placeholder="USERNAME.."></h3>
-                    <h3><input type="number" name="money"  size="35" placeholder="MONEY TO DEPOSIT(Galleons)" style="width: 391px"></h3>
+                    <h3><input type="number" name="money"  size="35" placeholder="MONEY TO DEPOSIT(Galleons)" ></h3>
                     <h3><input type="password" name="pass"  size="35" placeholder="PASSWORD"></h3>
-             <select id="cus" name ='customer' class="formInput" style="width: 391px">
+             <select id="cus" name ='customer' class="formInput" >
                 <option value='wizard'>Wizard</option>
                 <option value='witch'>Witch</option>
                 <option value='Student'>Hogwarts Student</option>
             </select>
-                    <input type="submit" value="Submit" style="width: 391px">
+                    <input type="submit" value="Submit" >
                     <a href="index.jsp">HOME</a>
             </form>
             

@@ -71,15 +71,8 @@ public class SignIn { //JavaBean
         reg = new Register();
         String registration;
         registration = "Sorry Some Error Occured while Resgistring. TRY AGAIN!!! ";
-        
-        
-           registration = reg.RegistrationCheck(name, username, money, password, customer);
-           setResult(registration);
-        
-        
-
+        registration = reg.RegistrationCheck(name, username, money, password, customer);
+        setResult(registration);
     }
-
-    
 }  
 

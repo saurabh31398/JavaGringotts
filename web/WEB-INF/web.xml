@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-
+    <servlet>
+        <servlet-name>Authenticate</servlet-name>
+        <servlet-class>Servlet.Authenticate</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SessionTicketing</servlet-name>
+        <servlet-class>Servlet.SessionTicketing</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RequestDispatcher</servlet-name>
+        <servlet-class>Servlet.RequestDispatcher</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserHome</servlet-name>
+        <servlet-class>Servlet.UserHome</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Authenticate</servlet-name>
+        <url-pattern>/Authenticate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SessionTicketing</servlet-name>
+        <url-pattern>/SessionTicketing</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RequestDispatcher</servlet-name>
+        <url-pattern>/RequestDispatcher</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserHome</servlet-name>
+        <url-pattern>/UserHome</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
