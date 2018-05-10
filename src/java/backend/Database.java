@@ -89,9 +89,9 @@ public class Database {
         String newContent;
         String newContent1;  
         
-        String f = "H:\\Projects\\Database\\"+ "1000"+".txt";
+        String f = "H:\\Projects\\Database\\"+ "1000"+".txt";                                //make this Dynamic accountNumberFrom
         String fromAddress = "H:\\Projects\\Database\\"+ accountNumberFrom +".txt"; 
-        String toAddress = "H:\\Projects\\Database\\"+ "1001" +".txt";
+        String toAddress = "H:\\Projects\\Database\\"+ "1001" +".txt";                       ////make this Dynamic accountNumberTo
         File file = new File(f);
         if(!file.exists())
             return false;
