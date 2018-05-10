@@ -17,9 +17,13 @@ h1,h2{
    font-family: 'Shojumaru', cursive;
    color: gold;
 }
+div h2{
+    color:  #9a7d0a;
+}
 
 div {
-    border-radius: 5px;
+    opacity: 0.95;
+    border-radius: 20px;
     width: 40%;
     background-color: #f2f2f2;
     padding: 20px;
@@ -54,4 +58,26 @@ h3
 {
     box-sizing: border-box;
     width: 100%;
+}
+#container {
+    width:100%;
+    text-align:center;
+    opacity: 0.8;
+}
+
+#left {
+    float:left;
+    width:100px;
+    opacity: 1;
+}
+
+#center {
+    display: inline-block;
+    margin:0 auto;
+    width:100px;
+}
+
+#right {
+    float:right;
+    width:100px;
 }

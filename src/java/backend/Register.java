@@ -50,9 +50,10 @@ public class Register {
         fWrite = new FileWriter(userFile, true); //We have the permission to append the file
         bWrite2 = new BufferedWriter(fWrite);
         out = new PrintWriter(bWrite2);
-        out.println("Name :" + name + ";");
+        out.println("Name :" + name + ":");
         out.println("USERNAME :" + username + ":" );
-        out.println("Account Balanc:" + money + ":");
+        out.println("Account Number :" + accountNumber + ":");
+        out.println("Account Balance:" + money + ":");
         out.println("CUSTOMER :" + customer + ":" );
         out.println("PASSBOOK:");
         

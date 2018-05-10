@@ -17,10 +17,10 @@
         <div >
         <form method="post" action="Authenticate" id = "logIn" >
             <h3> LOG IN </h3>
-            <h3 align="left" padding="50px" ><input type="text" name="unm" class="formInput" placeholder='UserName..'/></h3>
+            <h3 align="left" padding="50px" ><input type="text" name="unm" class="formInput" placeholder='Username..'/></h3>
             <h3 align="left" padding="50px" ><input type="password" name="pass" class="formInput" placeholder='password..' /></h3>
             <h3 style="text-align: left;" > Remember Me <input type="checkbox" name="rme" value="1" ></h3></input>
-            <p ><input type="submit" value="Submit"padding='25px' ></p> 
+            <p ><input type="submit" value="Submit" ></p> 
             <a href="SignIn.jsp">Not Registered ! So Sign In</a>
         </form>
   

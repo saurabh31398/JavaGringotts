@@ -8,9 +8,11 @@ import java.io.IOException;
 public class UserHome {
     private String username;
     private String info;
-    private String Accountbalance;
+    private String accountNumber;
+    private String accountbalance;
     private String customer;
     private String passbook[];
+    
     public void setUserInfo(String username)
     {
         this.username = username;
@@ -24,9 +26,13 @@ public class UserHome {
     {
         return username;
     }
+    public void setAccountNumber(String s)
+    {
+        accountNumber = s;
+    }
     public void setAccountBalance(String a)
     {
-        Accountbalance = a;
+        accountbalance = a;
     }
     public void setCustomerType(String x)
     {
@@ -43,9 +49,13 @@ public class UserHome {
     {
         return info;
     }
+    public String getAccountNumber()
+    {
+        return accountNumber;
+    }
     public String getAccountBalance()
      {
-         return Accountbalance;
+         return accountbalance;
      }
     public String getCustomerType()
     {
@@ -62,16 +72,17 @@ public class UserHome {
         
         setName(s[0]);
         //setUsername(s[1])    since we already have username
-        setAccountBalance(s[2]);
-        setCustomerType(s[3]);
-        String[] passb = new String[10];
+        setAccountNumber(s[2]); 
+        setAccountBalance(s[3]);
+        setCustomerType(s[4]);
+        String[] passbook = new String[10];
         int j = 0;
         for(int i = 4; i < s.length ;i++)
         {
-            passb[j] = s[i];
+            passbook[j] = s[i];
             j++;
         }
-        setPassbook(passb);
+        setPassbook(passbook);
     }
    
 }

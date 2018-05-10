@@ -1,6 +1,6 @@
 <%@page import="javax.servlet.http.*" %>
 <%@page import="java.io.PrintWriter"%>
-<%@page session="false" %>
+//<%@page session="false" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 
@@ -41,12 +41,24 @@
                   <h1 align="center"> GRINGOTTS &nbsp; BANK </h1>
         
            <h2 align="center">Welcome to Gringotts A bank for Wizards & Witches </h2>
-    <center><div style="width: 60%; text-align: left">
+        <div id="container" >
+        <div id="left" style="padding: 20px"> 
+            <img src="wizard.png" height="150px" width="150px">
+            <h2><%=UserHome.getUsername()%></h2>
+        <a href="Transfer.jsp">Wizard&nbsp;Money&nbsp;Transfer</a>
+        <p><a href="Passbook.jsp">Request&nbsp;for&nbsp;Statement</a></p>
+           </div>
+    <center><div id="center"style="width: 60%; text-align: left">
             <h2>NAME : <%=UserHome.getName()%></h2>
             <h2>USERNAME : <%=UserHome.getUsername()%></h2>
+            <h2>ACCOUNT NUMBER : <%=UserHome.getAccountNumber()%></h2>
             <h2>ACCOUNT BALANCE : <%=UserHome.getAccountBalance()%></h2>
             <h2>CUSTOMER TYPE : <%=UserHome.getCustomerType()%></h2>
-            <h2>PASSBOOK : <%String[] s = UserHome.getPassbook();%></h2>
+
+<div id="right">
+    <a href="Logout.jsp">Sign&nbspOut</a>
+</div>
+</div>
          
          
     </center></div>
