@@ -92,28 +92,19 @@ public class Database {
         String f = "H:\\Projects\\Database\\"+ "1000"+".txt";                                //make this Dynamic accountNumberFrom
         String fromAddress = "H:\\Projects\\Database\\"+ accountNumberFrom +".txt"; 
         String toAddress = "H:\\Projects\\Database\\"+ "1001" +".txt";                       ////make this Dynamic accountNumberTo
-        File file = new File(f);
+        File file = new File(fromAddress);
         if(!file.exists())
             return false;
         FileReader fRead = new FileReader(file);
         BufferedReader bRead = new BufferedReader(fRead);
         FileReader fRead2 = new FileReader(file);
-        BufferedReader bRead2 = new BufferedReader(fRead2);
-        
-//        File fname = new File(fromAddress);
-//        FileWriter fWrite = new FileWriter(fname, true); 
-//        BufferedWriter bWrite = new BufferedWriter(fWrite);
-//        PrintWriter out = new PrintWriter(bWrite);
-
-        
-        
+        BufferedReader bRead2 = new BufferedReader(fRead2);      
         String line;
         int i = 0;
         while((line = bRead.readLine()) != null && i < 4)
         {       
             if(i == 3)
             {
-                
                 String[] words = line.split("[:]");
                 accountBalanceFrom = Integer.parseInt(words[1]);
                 isBalanceEnough = accountBalanceFrom > moneyToBeTransfered;
@@ -128,32 +119,34 @@ public class Database {
             file = new File(f);
             if(!file.exists())
                 return false;
-            fRead = new FileReader(file);
-            bRead = new BufferedReader(fRead);
-            while((line = bRead.readLine()) != null && i <= 4)
-            {       
+            
+            RandomAccessFile raf = new RandomAccessFile(file, "rw");
+            long pos = 0;
+            while((line = raf.readLine()) != null && i <= 4)
+            {   
                 if(i == 3)                                   //Since account balance is on 4th line
                 {
                     oldAccountBalanceFrom = line;
                     String[] words = line.split("[:]");
                     accountBalanceFrom = Integer.parseInt(words[1]);
                     accountBalanceFrom = accountBalanceFrom - moneyToBeTransfered;
-                            
-                    FileWriter writer = new FileWriter(f, true);
-                    line.replaceFirst(line, "Account Balance:" + accountBalanceFrom + ":");
-                    writer.close();
+                           
+                    raf.seek(pos);
+                    raf.writeUTF("Account Balance:" + accountBalanceFrom + ":");
+                    
                     break;
                 }
                 i++;
+                pos = raf.getFilePointer();
             }
+            raf.close();
             File file2;
             file2 = new File(toAddress);
             if(!file2.exists())
                 return false;
             i = 0;
-            fRead2 = new FileReader(file2);
-            bRead2 = new BufferedReader(fRead2);
-            while((line = bRead2.readLine()) != null || i <= 4)
+            RandomAccessFile raf1 = new RandomAccessFile(file2,"rw");
+            while((line = raf1.readLine()) != null || i <= 4)
             {       
                 if(i == 3)
                 {
@@ -164,14 +157,13 @@ public class Database {
                     accountBalanceTo = Integer.parseInt(words[1]);
                     accountBalanceTo = accountBalanceTo + moneyToBeTransfered;
                     oldContent1 = words[1];
-
+                    raf.writeUTF("Account Balance:" + accountBalanceTo + ":");
                     break;
                 }
                 i++;
             }
-            FileWriter writer1 = new FileWriter(toAddress, true);
-            writer1.write(oldContent.replace(oldContent1, String.valueOf(accountBalanceTo)));
-            writer1.close();
+            raf1.close();
+            
             //http://javaconceptoftheday.com/modify-replace-specific-string-in-text-file-in-java/
             bRead.close();
            
